@@ -3,12 +3,9 @@ const { Router } = require('express');
 const { getTarefas, addTarefa, 
      updateTarefa, deleteTarefa, getTarefaPorCodigo } = require('../controllers/tarefasController')
 
-/* const { getSalas, addSala, updateSala, deleteSala, getSalaPorCodigo }
-     = require('../controllers/salasController');
 
-const { getEquipamentoPorSala, addEquipamento, updateEquipamento,
-     deleteEquipamento, getEquipamentoPorCodigo } =
-     require('../controllers/equipamentosController'); */
+const { getCategorias, addCategoria,
+     updateCategoria, deleteCategoria, getCategoriaPorCodigo } = require('../controllers/categoriasController')
 
 
 const {login, verificaJWT} = require('../controllers/segurancaController');
@@ -26,5 +23,14 @@ rotas.route('/tarefas')
 rotas.route('/tarefas/:codigo')
      .get(verificaJWT, getTarefaPorCodigo)
      .delete(verificaJWT, deleteTarefa);
+
+rotas.route('/categorias')
+     .get(verificaJWT, getCategorias)
+     .post(verificaJWT, addCategoria)
+     .put(verificaJWT, updateCategoria);
+
+rotas.route('/categorias/:codigo')
+     .get(verificaJWT, getCategoriaPorCodigo)
+     .delete(verificaJWT, deleteCategoria);
 
 module.exports = rotas;
