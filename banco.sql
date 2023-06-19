@@ -3,12 +3,13 @@ create table tarefas (
 	titulo varchar(40) not null, 
 	descricao varchar(40) not null, 
 	dataconclusao date not null,
-	prioridade varchar(10) not null
-	nomecategoria varchar(20) REFERENCES categoria (nome)
+	prioridade varchar(10) not null,
+	categoria integer not null, 
+	foreign key (categoria) references categoria (codigo)
 );
 
-INSERT INTO tarefas (titulo, descricao, dataconclusao, prioridade, nomecategoria)
-VALUES ('Tarefa 1', 'Descrição da Tarefa 1', '2023-04-30', 'Alta', 'Pessoal')
+INSERT INTO tarefas (titulo, descricao, dataconclusao, prioridade, categoria)
+VALUES ('Tarefa 1', 'Descrição da Tarefa 1', '2023-04-30', 'Alta', '1')
 RETURNING codigo, titulo, descricao, dataconclusao, prioridade, nomecategoria;
 
 

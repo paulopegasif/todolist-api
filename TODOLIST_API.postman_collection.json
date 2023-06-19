@@ -1,0 +1,318 @@
+{
+	"info": {
+		"_postman_id": "0ea1a342-5b37-4835-90b4-62e70c9f57b4",
+		"name": "TODOLIST_API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23456383"
+	},
+	"item": [
+		{
+			"name": "GET TAREFA",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7ImVtYWlsIjoicGF1bG9AaWZzdWwuZWR1LmJyIiwidGlwbyI6IlQiLCJ0ZWxlZm9uZSI6Iig1NCk0NDQ4NC00MzQ4Iiwibm9tZSI6IlBhdWxvIn0sImlhdCI6MTY4NzExNDU5OCwiZXhwIjoxNjg3MTE0ODk4fQ.Kzeic-12Xf85CMCjhET5UoMuQ-2Zh_TIyyohUxuF6to",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3002/tarefas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3002",
+					"path": [
+						"tarefas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET CATEGORIA",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7ImVtYWlsIjoicGF1bG9AaWZzdWwuZWR1LmJyIiwidGlwbyI6IlQiLCJ0ZWxlZm9uZSI6Iig1NCk0NDQ4NC00MzQ4Iiwibm9tZSI6IlBhdWxvIn0sImlhdCI6MTY4NzE1NTI3OSwiZXhwIjoxNjg3MTU1NTc5fQ.XDkB1uP1XpB0P0mV3kpYzXwKt1HLDbkj67bysk-1o2E",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3002/categorias",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3002",
+					"path": [
+						"categorias"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ADD TAREFA",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7ImVtYWlsIjoicGF1bG9AaWZzdWwuZWR1LmJyIiwidGlwbyI6IlQiLCJ0ZWxlZm9uZSI6Iig1NCk0NDQ4NC00MzQ4Iiwibm9tZSI6IlBhdWxvIn0sImlhdCI6MTY4NzA1OTc3OSwiZXhwIjoxNjg3MDYwMDc5fQ.dvJbyRAgBglU0TwFrNapc9S6FAp_5YY_SUrwroSQhUw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n        \"titulo\": \"Tarefa 5\",\r\n        \"descricao\": \"Descrição da Tarefa Teste\",\r\n        \"dataconclusao\": \"2023-04-30T03:00:00.000Z\",\r\n        \"prioridade\": \"Baixa\",\r\n        \"nomecategoria\": \"Faculdade\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3002/tarefas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3002",
+					"path": [
+						"tarefas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ADD CATEGORIA",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7ImVtYWlsIjoicGF1bG9AaWZzdWwuZWR1LmJyIiwidGlwbyI6IlQiLCJ0ZWxlZm9uZSI6Iig1NCk0NDQ4NC00MzQ4Iiwibm9tZSI6IlBhdWxvIn0sImlhdCI6MTY4NzE1NTEzMiwiZXhwIjoxNjg3MTU1NDMyfQ.khpBj61Kddlyee794lu93K_XdGCGn2NoQE8Y-2POfLw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n        \"nome\": \"Lazer\"\r\n        \r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3002/categorias",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3002",
+					"path": [
+						"categorias"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE TAREFA",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7ImVtYWlsIjoicGF1bG9AaWZzdWwuZWR1LmJyIiwidGlwbyI6IlQiLCJ0ZWxlZm9uZSI6Iig1NCk0NDQ4NC00MzQ4Iiwibm9tZSI6IlBhdWxvIn0sImlhdCI6MTY4NzA1NTY3MSwiZXhwIjoxNjg3MDU1OTcxfQ.yxxxgewco0-Fze4lD5HJ1b5on_B07kK-jsKO5PGw7V8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3002/tarefas/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3002",
+					"path": [
+						"tarefas",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE CATEGORIA",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7ImVtYWlsIjoicGF1bG9AaWZzdWwuZWR1LmJyIiwidGlwbyI6IlQiLCJ0ZWxlZm9uZSI6Iig1NCk0NDQ4NC00MzQ4Iiwibm9tZSI6IlBhdWxvIn0sImlhdCI6MTY4NzE1NTI3OSwiZXhwIjoxNjg3MTU1NTc5fQ.XDkB1uP1XpB0P0mV3kpYzXwKt1HLDbkj67bysk-1o2E",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3002/categorias/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3002",
+					"path": [
+						"categorias",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "LOGIN",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\" : \"paulo@ifsul.edu.br\",\r\n    \"senha\" : \"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3002/login",
+					"host": [
+						"localhost"
+					],
+					"port": "3002",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UPDATE TAREFA",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7ImVtYWlsIjoicGF1bG9AaWZzdWwuZWR1LmJyIiwidGlwbyI6IlQiLCJ0ZWxlZm9uZSI6Iig1NCk0NDQ4NC00MzQ4Iiwibm9tZSI6IlBhdWxvIn0sImlhdCI6MTY4NzA1NjAxOSwiZXhwIjoxNjg3MDU2MzE5fQ.P75dwaMCjNotrp4z55d-6LYWSrevnDreUEGP01esLPk",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n        \"codigo\": 2,\r\n        \"titulo\": \"Tarefa Teste 2\",\r\n        \"descricao\": \"Descrição da Tarefa 2\",\r\n        \"dataconclusao\": \"2023-04-30T03:00:00.000Z\",\r\n        \"prioridade\": \"Baixa\",\r\n        \"nomecategoria\": \"Lazer\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3002/tarefas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3002",
+					"path": [
+						"tarefas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UPDATE CATEGORIA",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7ImVtYWlsIjoicGF1bG9AaWZzdWwuZWR1LmJyIiwidGlwbyI6IlQiLCJ0ZWxlZm9uZSI6Iig1NCk0NDQ4NC00MzQ4Iiwibm9tZSI6IlBhdWxvIn0sImlhdCI6MTY4NzE1NTI3OSwiZXhwIjoxNjg3MTU1NTc5fQ.XDkB1uP1XpB0P0mV3kpYzXwKt1HLDbkj67bysk-1o2E",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n        \"codigo\": 5,\r\n        \"nome\": \"Faculdade\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3002/categorias/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3002",
+					"path": [
+						"categorias",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
