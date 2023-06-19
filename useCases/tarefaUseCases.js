@@ -6,7 +6,7 @@ const getTarefasDB = async () => {
         const { rows } = await 
         pool.query('SELECT * FROM tarefas ORDER BY codigo');
         return rows.map((tarefa) => new Task(tarefa.codigo, tarefa.titulo,
-            tarefa.descricao, tarefa.dataconclusao, tarefa.prioridade, tarefa.nomecategoria));
+            tarefa.descricao, tarefa.dataconclusao, tarefa.prioridade, tarefa.categoria));
     } catch(err){
         throw "Erro: " + err;
     }
@@ -14,13 +14,13 @@ const getTarefasDB = async () => {
 
 const addTarefaDB = async (body) => {
     try {
-        const { titulo, descricao, dataconclusao, prioridade, nomecategoria} = body;
+        const { titulo, descricao, dataconclusao, prioridade, categoria} = body;
         const results = await pool.query(`INSERT INTO tarefas (titulo, descricao,
-            dataconclusao, prioridade, nomecategoria) VALUES ($1, $2, $3, $4, $5) 
-            RETURNING codigo, titulo, descricao, dataconclusao, prioridade, nomecategoria`, 
-            [titulo, descricao, dataconclusao, prioridade, nomecategoria]);
+            dataconclusao, prioridade, categoria) VALUES ($1, $2, $3, $4, $5) 
+            RETURNING codigo, titulo, descricao, dataconclusao, prioridade, categoria`, 
+            [titulo, descricao, dataconclusao, prioridade, categoria]);
         const tarefa = results.rows[0];
-        return new Task(tarefa.codigo, tarefa.titulo, tarefa.descricao, tarefa.dataconclusao, tarefa.prioridade,  tarefa.nomecategoria);
+        return new Task(tarefa.codigo, tarefa.titulo, tarefa.descricao, tarefa.dataconclusao, tarefa.prioridade,  tarefa.categoria);
     } catch (err){
         throw "Erro ao inserir a tarefa: " + err;
     }
@@ -28,17 +28,17 @@ const addTarefaDB = async (body) => {
 
 const updateTarefaDB = async (body) => {
     try {
-        const { titulo, descricao, dataconclusao, prioridade, nomecategoria, codigo} = body;
+        const { titulo, descricao, dataconclusao, prioridade, categoria, codigo} = body;
         const results = await pool.query(`UPDATE tarefas SET titulo=$1,
-        descricao=$2, dataconclusao = $3, prioridade = $4, nomecategoria = $5 WHERE codigo=$6 
-        RETURNING codigo, titulo, descricao, dataconclusao, prioridade, nomecategoria`, 
-        [titulo, descricao, dataconclusao, prioridade, nomecategoria, codigo]);
+        descricao=$2, dataconclusao = $3, prioridade = $4, categoria = $5 WHERE codigo=$6 
+        RETURNING codigo, titulo, descricao, dataconclusao, prioridade, categoria`, 
+        [titulo, descricao, dataconclusao, prioridade, categoria, codigo]);
         if (results.rowCount == 0){
             throw `Nenhum registro encontrado com o código ${codigo} para
             ser alterado`
         }
         const tarefa = results.rows[0];
-        return new Task(tarefa.codigo, tarefa.titulo, tarefa.descricao, tarefa.dataconclusao, tarefa.prioridade,  tarefa.nomecategoria);
+        return new Task(tarefa.codigo, tarefa.titulo, tarefa.descricao, tarefa.dataconclusao, tarefa.prioridade,  tarefa.categoria);
     } catch (err){
         throw "Erro ao alterar a tarefa: " + err;
     }
@@ -67,7 +67,7 @@ const getTarefaPorCodigoDB = async (codigo) => {
             throw `Nenhum registro encontrado com o código ${codigo}`
         } else {
             const tarefa = results.rows[0];
-            return new Task(tarefa.codigo, tarefa.titulo, tarefa.descricao, tarefa.dataconclusao, tarefa.prioridade,  tarefa.nomecategoria);
+            return new Task(tarefa.codigo, tarefa.titulo, tarefa.descricao, tarefa.dataconclusao, tarefa.prioridade,  tarefa.categoria);
         }
     } catch (err){
         throw "Erro ao recuperar a tarefa: " + err;
